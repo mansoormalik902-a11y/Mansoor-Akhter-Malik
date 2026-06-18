@@ -116,6 +116,20 @@ hr.div{border:none;border-top:1px solid var(--border);max-width:920px;margin:0 a
 .sk-icon{width:32px;height:32px;background:var(--ag);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:16px}
 .sk-name{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px}
 .sk-desc{font-size:12px;color:var(--muted);line-height:1.55}
+  .detail-box{
+  display:none;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  padding:20px;
+  border-radius:12px;
+  margin:10px 0 20px 0;
+  color:#fff;
+  line-height:1.8;
+}
+
+.sk{
+  cursor:pointer;
+}
 
 /* TIMELINE */
 .timeline{position:relative;padding-left:1.5rem}
@@ -342,7 +356,17 @@ footer span{color:var(--accent2)}
   <h2>What I do best.</h2>
   <p class="sec-intro">A focused skill set built across F&amp;B, financial advisory, corporate tax, public sector finance, and entrepreneurial operations.</p>
   <div class="skills-grid">
-    <div class="sk"><div class="sk-icon">📊</div><div class="sk-name">FP&amp;A &amp; MIS Reporting</div><div class="sk-desc">Branch-level P&amp;L, KPI dashboards, variance analysis, and executive forecasting.</div></div>
+    <div class="sk" onclick="toggleDetail('fpna')">
+  <div class="sk-icon">📊</div>
+  <div class="sk-name">FP&A & MIS Reporting</div>
+  <div class="sk-desc">Click to learn more</div>
+</div>
+
+<div id="fpna" class="detail-box">
+  Financial Planning & Analysis services include budgeting, forecasting,
+  KPI dashboards, management reporting, board reporting, variance analysis,
+  profitability reviews, and executive decision support.
+</div>
     <div class="sk"><div class="sk-icon">🧾</div><div class="sk-name">UAE VAT &amp; FTA Compliance</div><div class="sk-desc">End-to-end return filing, input tax reclaims, and multi-sector advisory.</div></div>
     <div class="sk"><div class="sk-icon">🏢</div><div class="sk-name">Corporate Tax Planning</div><div class="sk-desc">Tax compliance, transfer pricing documentation, and GCC regulatory submissions.</div></div>
     <div class="sk"><div class="sk-icon">⚙️</div><div class="sk-name">ERP Implementation</div><div class="sk-desc">SAP B1, Oracle R12, QuickBooks — integrating systems in complex environments.</div></div>
@@ -623,6 +647,17 @@ let letter = "";
     setTimeout(type, 100);
   }
 })();
+</script>
+  <script>
+function toggleDetail(id){
+  const box = document.getElementById(id);
+
+  if(box.style.display === "block"){
+    box.style.display = "none";
+  } else {
+    box.style.display = "block";
+  }
+}
 </script>
 </body>
 </html>
