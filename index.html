@@ -33,6 +33,36 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-fil
 .nav-links{display:flex;gap:1.2rem;list-style:none;flex-wrap:wrap}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
+  .menu-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+  color:white;
+}
+
+@media (max-width:768px){
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    background:#0b1020;
+    flex-direction:column;
+    padding:20px;
+    gap:15px;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+}
 
 /* HERO */
 #hero{padding:5.5rem 2rem 4rem;max-width:920px;margin:0 auto}
@@ -231,7 +261,12 @@ footer span{color:var(--accent2)}
 
 <nav>
   <a class="nav-logo" href="#hero">Mansoor<span>.</span></a>
-  <ul class="nav-links">
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <ul class="nav-links" id="navLinks">
     <li><a href="#ventures">Ventures</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -245,7 +280,7 @@ footer span{color:var(--accent2)}
   <div class="hero-badge">Creating Value Through Leadership & Innovation</div>
   <h1>Finance leader.<br/><em>Data strategist.</em><br/>Entrepreneur.</h1>
   <p id="typing-text"></p>
-  <p class="hero-sub">I'm Mansoor Akhter Malik — a GCC finance professional, CPA, and founder leading two businesses in Abu Dhabi while delivering executive-level financial intelligence across the UAE.</p>
+  <p class="hero-sub">I'm Mansoor Akhter Malik — a GCC finance professional, CPA, and founder leading two businesses in Abu Dhabi & Pakistan while delivering executive-level financial intelligence across the UAE.</p>
   <div class="role-pills">
     <a class="role-pill" href="https://www.irtransports.com/" target="_blank">
       <div class="rp-dot rp-blue"></div>
@@ -699,6 +734,11 @@ function toggleDetail(id){
   } else {
     box.style.display = "block";
   }
+}
+</script>
+  <script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
 }
 </script>
 </body>
