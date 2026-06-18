@@ -8,16 +8,23 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#ffffff;--bg2:#111118;--bg3:#18181f;--bg4:#1e1e28;
+  --bg:#081F4D;--bg2:#111118;--bg3:#18181f;--bg4:#1e1e28;
   --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
-  --text:#f0f0f4;--muted:#888899;
+  --text:#f0f0f4;--muted:#d1d5db;
   --accent:#6e6ef7;--accent2:#9b9bff;--ag:rgba(110,110,247,0.15);
   --green:#2dd4a0;--gg:rgba(45,212,160,0.12);
   --amber:#f5a623;--amg:rgba(245,166,35,0.12);
   --sans:'Space Grotesk',sans-serif;--body:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.7;min-height:100vh}
+body{
+  background:linear-gradient(135deg,#081F4D 0%,#0B2A66 50%,#123A85 100%);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:15px;
+  line-height:1.7;
+  min-height:100vh;
+}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px}
@@ -33,7 +40,14 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-fil
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block}
 h1{font-family:var(--sans);font-size:clamp(2.1rem,5vw,3.1rem);font-weight:700;line-height:1.12;letter-spacing:-1px;margin-bottom:1.3rem}
 h1 em{font-style:normal;color:var(--accent2)}
-.hero-sub{font-size:16px;color:var(--muted);max-width:580px;line-height:1.8;margin-bottom:1.8rem}
+#typing-text{
+  color:#9b9bff;
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:20px;
+  min-height:30px;
+}
+  .hero-sub{font-size:16px;color:var(--muted);max-width:580px;line-height:1.8;margin-bottom:1.8rem}
 .role-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2rem}
 .role-pill{display:flex;align-items:center;gap:9px;border:1px solid var(--border2);border-radius:10px;padding:10px 16px;text-decoration:none;background:var(--bg3);transition:border-color .2s,background .2s}
 .role-pill:hover{border-color:var(--accent);background:var(--bg4)}
@@ -212,6 +226,7 @@ footer span{color:var(--accent2)}
 <div id="hero">
   <div class="hero-badge">Open to senior opportunities · Abu Dhabi, UAE</div>
   <h1>Finance leader.<br/><em>Data strategist.</em><br/>Entrepreneur.</h1>
+  <p id="typing-text"></p>
   <p class="hero-sub">I'm Mansoor Akhter Malik — a GCC finance professional, CPA, and founder leading two businesses in Abu Dhabi while delivering executive-level financial intelligence across the UAE.</p>
   <div class="role-pills">
     <a class="role-pill" href="https://www.irtransports.com/" target="_blank">
@@ -552,6 +567,41 @@ document.addEventListener('keydown', function(e) {
 });
 
 buildGallery();
+</script>
+<script>
+const texts = [
+  "Accountant",
+  "Finance Professional",
+  "Tax Consultant",
+  "CMA Finalist",
+  "Business Advisor"
+];
+
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type(){
+  if(count === texts.length){
+    count = 0;
+  }
+
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+
+  document.getElementById("typing-text").textContent = letter;
+
+  if(letter.length === currentText.length){
+    setTimeout(() => {
+      index = 0;
+      count++;
+      type();
+    }, 1500);
+  } else {
+    setTimeout(type, 100);
+  }
+})();
 </script>
 </body>
 </html>
