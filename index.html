@@ -64,10 +64,26 @@ nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.9);backdrop-fil
   }
 }
 
-/* HERO */
-#hero{padding:5.5rem 2rem 4rem;max-width:920px;margin:0 auto}
+/* HERO */#hero{
+  #hero{
+  padding:5.5rem 2rem 4rem;
+  max-width:1400px;
+  margin:0 auto;
+}
 .hero-badge{box-shadow:0 0 20px rgba(110,110,247,0.35);display:inline-flex;align-items:center;gap:7px;background:var(--ag);border:1px solid rgba(110,110,247,0.3);border-radius:20px;padding:4px 14px;font-size:12px;color:var(--accent2);font-weight:500;margin-bottom:1.8rem;letter-spacing:.4px}
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block}
+  .hero-layout{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:50px;
+  align-items:start;
+}
+
+@media(max-width:900px){
+  .hero-layout{
+    grid-template-columns:1fr;
+  }
+}
 h1{font-family:var(--sans);font-size:clamp(2.1rem,5vw,3.1rem);font-weight:700;line-height:1.12;letter-spacing:-1px;margin-bottom:1.3rem}
 h1 em{font-style:normal;color:var(--accent2)}
 #typing-text{
@@ -277,52 +293,20 @@ footer span{color:var(--accent2)}
 </nav>
 
 <div id="hero">
-  <div class="hero-badge">Creating Value Through Leadership & Innovation</div>
-  <h1>Finance leader.<br/><em>Data strategist.</em><br/>Entrepreneur.</h1>
+  <div class="role-pills">
+  <div class="hero-badge">
+Strategic Finance • Corporate Leadership • Business Growth
+</div>
+ <h1>
+Chief Financial Officer.<br/>
+<em>Business Strategist.</em><br/>
+Corporate Leader.
+</h1>
   <p id="typing-text"></p>
  <p class="hero-sub">
 Finance Executive with 7+ years of experience across UAE and Pakistan, specializing in Financial Planning & Analysis (FP&A), Corporate Taxation, ERP Transformation, Treasury Management, and Business Advisory. Founder of Malik Associates and CEO of Imperial Transport LLC, helping organizations achieve sustainable growth through strategic financial leadership.
 </p>
-  <div class="executive-profile">
-
-  <h3>Executive Profile</h3>
-
-  <div class="ep-item">✓ 7+ Years Finance Experience</div>
-
-  <div class="ep-item">✓ UAE & Pakistan Market Expertise</div>
-
-  <div class="ep-item">✓ CEO – Imperial Transport LLC</div>
-
-  <div class="ep-item">✓ Managing Director – Malik Associates</div>
-
-  <div class="ep-item">✓ ERP Transformation Specialist</div>
-
-  <div class="ep-item">✓ Corporate Tax & VAT Advisor</div>
-
-</div>
-  .executive-profile{
-  margin-top:30px;
-  padding:24px;
-  border-radius:16px;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  backdrop-filter:blur(12px);
-}
-
-.executive-profile h3{
-  margin-bottom:18px;
-  color:#9b9bff;
-}
-
-.ep-item{
-  padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  color:#dbe4ff;
-}
-
-.ep-item:last-child{
-  border-bottom:none;
-}
+    <div class="role-pills">
     <a class="role-pill" href="https://www.irtransports.com/" target="_blank">
       <div class="rp-dot rp-blue"></div>
       <div><span class="rp-title">Chief Executive Officer</span><span class="rp-company">Imperial Transport LLC · Abu Dhabi</span></div>
